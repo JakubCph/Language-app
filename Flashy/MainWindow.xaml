@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Flashy"        
+        xmlns:local="clr-namespace:Flashy"   
+        xmlns:pages="clr-namespace:Flashy.Pages"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -23,25 +24,25 @@
             <Setter Property="IsHitTestVisible" Value="False"/>
         </Style>
         <BitmapImage x:Key="AddButtonBmp" UriSource="./Resources/AddButton.bmp"/>
+        <local:ViewsNavigator x:Key="Navigator"/>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.Background>
+    <DockPanel>
+        <DockPanel.Background>
             <SolidColorBrush Color="{StaticResource Background}"/>
-        </Grid.Background>
+        </DockPanel.Background>
 
-        <ToolBar x:Name="Toolbar" Background="#FF70A1D9" VerticalAlignment="Top">
-            <Button x:Name="Add" Content="Add" Style="{StaticResource DefaultButton}" Click="AddDecks"/>
-        </ToolBar>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar x:Name="Toolbar" Background="#FF70A1D9" VerticalAlignment="Top">
+                <Button x:Name="Add" Content="Add" Style="{StaticResource DefaultButton}" Click="AddDecks"/>
+                <Button x:Name="Learn" Content="Learn" Style="{StaticResource DefaultButton}" Click="LearnDeck"/>
+            </ToolBar>
+        </ToolBarTray>
 
-        <Frame x:Name="Frame" 
-               Grid.Row="1" BorderBrush="#FF150202" OpacityMask="Black" Source="Pages/Overview.xaml"
-               NavigationUIVisibility="Hidden" Content="Pages/Overview.xaml"/>
+        <ContentControl x:Name="MainView" Grid.Row="1" DataContext="{StaticResource Navigator}"
+                        Content="{Binding View}"/>
 
-        <StackPanel x:Name="AddButtonPanel" Grid.Row="1" HorizontalAlignment="Right" 
+
+        <!--<StackPanel x:Name="AddButtonPanel" Grid.Row="1" HorizontalAlignment="Right" 
                     VerticalAlignment="Bottom" Margin="0 0 50 50">
 
             <StackPanel.Triggers>
@@ -66,7 +67,7 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </StackPanel.Triggers>
-            <!--New textblocks can be added and will automatically be animated-->
+            --><!--New textblocks can be added and will automatically be animated--><!--
             <StackPanel x:Name="OptionPanel" IsHitTestVisible="True">
                 <TextBlock x:Name="txt1" Style="{StaticResource StandardTextBlock}" PreviewMouseDown="txt1_PreviewMouseDown" Text="Add Decks">
                     <TextBlock.RenderTransform>
@@ -112,6 +113,6 @@
                     </EventTrigger>                    
                 </Button.Triggers>
             </Button>
-        </StackPanel>
-    </Grid>
+        </StackPanel>-->
+    </DockPanel>
 </Window>

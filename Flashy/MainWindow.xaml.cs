@@ -24,34 +24,21 @@ namespace Flashy
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly ViewsNavigator m_navigator;
         public MainWindow()
         {
             InitializeComponent();
+            m_navigator = MainView.FindResource("Navigator") as ViewsNavigator;
         }
 
         private void AddDecks(object sender, RoutedEventArgs e)
         {
-            var vm = Frame.DataContext as FlashcardViewModel;
-            if (vm is null)
-                return;
-            var dialog = new Window();
-            if (dialog.ShowDialog() == false)
-                return; // operation canceled 
-
-            vm.AddDeckByName("Sample");
+            m_navigator.ChangeMode(DisplayMode.Decks);
         }
 
-        private void ShowOptions(object sender, RoutedEventArgs e)
+        private void LearnDeck(object sender, RoutedEventArgs e)
         {
-           
-        }
-
-        private void txt1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            var vm = Frame.DataContext as FlashcardViewModel;
-            if (vm is null)
-                return;
-            vm.AddDeckByName("Sample");
+            m_navigator.ChangeMode(DisplayMode.LearningMode);
         }
     }
 }
