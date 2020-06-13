@@ -55,11 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CustomCommands.cs" />
     <Compile Include="DisplayMode.cs" />
-    <Compile Include="IViewsNavigator.cs" />
+    <Compile Include="Interfaces\IViewsNavigator.cs" />
     <Compile Include="Pages\AddDeckWindow.xaml.cs">
       <DependentUpon>AddDeckWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToolbarConfigurationMode.cs" />
+    <Compile Include="ToollbarItemsComposer.cs" />
     <Compile Include="ViewsNavigator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

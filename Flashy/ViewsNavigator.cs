@@ -12,9 +12,22 @@ namespace Flashy
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(argName));
         }
+        public DisplayMode CurrentMode 
+        {
+            get => m_currentMode;
+            set
+            {
+                if (CurrentMode == value)
+                    return;
 
+                m_currentMode = value;
+                OnPropertyChaged(nameof(CurrentMode));
+            }
+        }
         public void ChangeMode(DisplayMode argMode)
         {
+            CurrentMode = argMode;
+
             switch (argMode)
             {
                 case DisplayMode.LearningMode:
@@ -29,6 +42,8 @@ namespace Flashy
         }
 
         private UserControl m_control;
+        private DisplayMode m_currentMode = DisplayMode.Decks;
+
         public UserControl View
         {
             get => m_control;

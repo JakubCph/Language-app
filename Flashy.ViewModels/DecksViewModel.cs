@@ -35,5 +35,8 @@ namespace Flashy.ViewModels
             if (deckToDelete != null)
                 Decks.Remove(deckToDelete);
         }
+
+        #region Commands
+        #endregion
     }
 }

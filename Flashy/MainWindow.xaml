@@ -27,6 +27,7 @@
         <BitmapImage x:Key="AddButtonBmp" UriSource="./Resources/AddButton.bmp"/>
         <local:ViewsNavigator x:Key="Navigator"/>
         <vm:DecksViewModel x:Key="DecksViewModel"/>
+        <local:ToollbarItemsComposer x:Key="ToolbarComposer"/> 
     </Window.Resources>
     <DockPanel>
         <DockPanel.Background>
@@ -34,11 +35,8 @@
         </DockPanel.Background>
 
         <ToolBarTray DockPanel.Dock="Top">
-            <ToolBar x:Name="Toolbar" Background="#FF70A1D9" VerticalAlignment="Top">
-                <Button x:Name="DecksOverviewButton" Content="Decks" Click="ViewDecks"/>
-                <Button x:Name="AddDecksButton" Content="Add" Click="AddDecks"/>
-                <Button x:Name="LearnButton" Content="Learn" Click="LearnDeck"/>
-            </ToolBar>
+            <ToolBar x:Name="Toolbar" Background="#FF70A1D9" VerticalAlignment="Top" 
+                     ItemsSource="{Binding Source={StaticResource ToolbarComposer}, Path=Buttons}"/>
         </ToolBarTray>
 
         <ContentControl x:Name="MainView" Grid.Row="1" DataContext="{Binding Source={StaticResource DecksViewModel}}"

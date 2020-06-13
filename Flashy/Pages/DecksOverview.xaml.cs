@@ -25,5 +25,10 @@ namespace Flashy.Pages
         {
             InitializeComponent();
         }
+       
+        private void DeckList_LostFocus(object sender, RoutedEventArgs e)
+        {
+            DeckList.SelectedItem = null;
+        }
     }
 }
