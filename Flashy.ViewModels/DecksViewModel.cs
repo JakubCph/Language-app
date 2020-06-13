@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Flashy.ViewModels
 {
-    public class FlashcardViewModel
+    public class DecksViewModel : IDecksViewModel
     {
         private const string DefaultDeck = "Default";
 
-        public FlashcardViewModel()
+        public DecksViewModel()
         {
             Decks = new ObservableCollection<Deck>()
             {

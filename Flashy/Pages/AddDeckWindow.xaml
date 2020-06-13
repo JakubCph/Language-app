@@ -1,0 +1,25 @@
+﻿<Window x:Class="Flashy.Pages.AddDeckWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flashy.Pages"
+        mc:Ignorable="d"
+        Background="LightGray">
+    <Grid x:Name="InputBox">
+        <Border
+            BorderBrush="Black" 
+            BorderThickness="1" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Margin="5" Text="Input new deck name:" FontWeight="Bold" FontFamily="Cambria" />
+                <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="InputTextBox"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="SaveButton" Margin="5" Content="Save" Background="{x:Null}" Click="SaveButton_Click"/>
+                    <Button x:Name="CancelButton" Margin="5" Content="Cancel" Background="{x:Null}" Click="CancelButton_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace Flashy
 {
-    public class ViewsNavigator : System.ComponentModel.INotifyPropertyChanged
+    public class ViewsNavigator : System.ComponentModel.INotifyPropertyChanged, IViewsNavigator
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,8 +29,8 @@ namespace Flashy
         }
 
         private UserControl m_control;
-        public UserControl View 
-        { 
+        public UserControl View
+        {
             get => m_control;
             set
             {

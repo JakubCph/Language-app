@@ -56,6 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DisplayMode.cs" />
+    <Compile Include="IViewsNavigator.cs" />
+    <Compile Include="Pages\AddDeckWindow.xaml.cs">
+      <DependentUpon>AddDeckWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewsNavigator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,15 +74,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddDeckWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DecksOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LearningMode.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Overview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,9 +93,6 @@
     </Compile>
     <Compile Include="Pages\LearningMode.xaml.cs">
       <DependentUpon>LearningMode.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Overview.xaml.cs">
-      <DependentUpon>Overview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

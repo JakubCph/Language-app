@@ -1,4 +1,5 @@
 ﻿using Flashy.Extensions;
+using Flashy.Pages;
 using Flashy.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -24,21 +25,30 @@ namespace Flashy
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ViewsNavigator m_navigator;
+        private readonly IViewsNavigator m_navigator;
+        private readonly IDecksViewModel m_decksVM;
+
         public MainWindow()
         {
             InitializeComponent();
-            m_navigator = MainView.FindResource("Navigator") as ViewsNavigator;
+            m_navigator = MainView.FindResource("Navigator") as IViewsNavigator;
+            m_decksVM = MainView.FindResource("DecksViewModel") as IDecksViewModel;
         }
 
         private void AddDecks(object sender, RoutedEventArgs e)
         {
-            m_navigator.ChangeMode(DisplayMode.Decks);
+            var window = new AddDeckWindow(m_decksVM);
+            window.Show();
         }
 
         private void LearnDeck(object sender, RoutedEventArgs e)
         {
             m_navigator.ChangeMode(DisplayMode.LearningMode);
+        }
+
+        private void ViewDecks(object sender, RoutedEventArgs e)
+        {
+            m_navigator.ChangeMode(DisplayMode.Decks);
         }
     }
 }

@@ -7,6 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="LightGray">
-            
+        <ListView x:Name="DeckList" ItemsSource="{Binding Path=Decks}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Name="border" BorderBrush="Aqua" BorderThickness="1" MinWidth="500"
+                         Padding="5" Margin="5">
+                        <TextBlock Text="{Binding Path=Name}"/>
+                    </Border>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=Name}" Value="Default">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Yellow"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>    
     </Grid>
 </UserControl>
